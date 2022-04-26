@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title %} Search Results {% endblock %}
+{% set active_page = "Track List" %}
+{% block content %}
+
+{% if tracks is defined %}
+    <table class="table table-striped">
+        <thead>
+        <th>Track ID</th>
+        <th>Track Name</th>
+        <th>Composer</th>
+        <th>Duration (Milliseconds)</th>
+        <th>Price</th>
+        </thead>
+        {% for track in tracks %}
+            <tr>
+                <td>{{ track["TrackId"] }}</td>
+                <td>{{ track["Name"] }}</td>
+                <td>{{ track["Composer"] }}</td>
+                <td>{{ track["Duration"] }}</td>
+                <td>{{ track["Price"] }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% else %}
+    <h3> No Tracks Found! </h3>
+{% endif %}
+{% endblock %}

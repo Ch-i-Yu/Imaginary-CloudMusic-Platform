@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %} Add New Genre {% endblock %}
+{% set active_page = "add" %}
+{% block content %}
+    <h3>
+        Add a New Genre
+    </h3>
+    <p>
+    Use the form below to specify the name of the new Genre you would like to add to the system.
+    </p>
+    <form action="/add/genre" method="POST">
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="e.g. Classical Jazz" name="genre">
+            <button class="btn btn-outline-secondary" type="submit" value="submit">Submit</button>
+        </div>
+    </form>
+{% endblock %}

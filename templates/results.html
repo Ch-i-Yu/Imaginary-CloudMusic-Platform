@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block title %} Search Results {% endblock %}
+{% set active_page = "search" %}
+{% block content %}
+
+    {% if genre is defined %}
+        <h3>Results: {{ genre }} based Albums</h3>
+        <table class="table table-striped">
+            <thead>
+            <th>Album ID</th>
+            <th>Album Title</th>
+            <th>Artist Name</th>
+            <th>Album Duration (Seconds)</th>
+            <th>Album Value</th>
+            </thead>
+            {% for album in albums %}
+                <tr>
+                    <td><a href='/tracks/{{ album["AlbumId"] }}'>{{ album["AlbumId"] }}</a></td>
+                    <td>{{ album["AlbumTitle"] }}</td>
+                    <td>{{ album["ArtistName"] }}</td>
+                    <td>{{ album["AlbumDuration"] }}</td>
+                    <td>{{ album["AlbumValue"] }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <h3> No Genre Provided! </h3>
+    {% endif %}
+{% endblock %}
